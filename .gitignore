@@ -1,0 +1,21 @@
+# Vagrant
+.vagrant/
+*.backup
+
+# SSH keys
+*.pem
+*.key
+id_rsa
+id_ed25519
+
+# Secrets
+.env
+.env.*
+*password*
+*secret*
+credentials.yml
+vault-password.txt
+
+# Temporary files
+*.log
+*.tmp
