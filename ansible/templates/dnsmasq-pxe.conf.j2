@@ -1,0 +1,26 @@
+# Отключаем DNS
+port=0
+
+# Интерфейс PXE
+interface={{ pxe_interface }}
+bind-dynamic
+
+# DHCP
+dhcp-authoritative
+dhcp-range={{ pxe_dhcp_start }},{{ pxe_dhcp_end }},{{ pxe_netmask }},12h
+
+# Маска подсети
+dhcp-option=option:netmask,{{ pxe_netmask }}
+
+# TFTP server
+dhcp-option=66,"{{ pxe_server_ip }}"
+
+# PXE bootloader
+dhcp-boot=pxelinux.0,,{{ pxe_server_ip }}
+
+# TFTP
+enable-tftp
+tftp-root={{ tftp_root }}
+
+# Логирование DHCP
+log-dhcp

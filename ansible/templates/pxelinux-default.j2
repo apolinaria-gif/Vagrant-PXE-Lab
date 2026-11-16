@@ -1,0 +1,12 @@
+DEFAULT install
+
+PROMPT 0
+TIMEOUT 30
+
+LABEL install
+
+    KERNEL ubuntu/casper/vmlinuz
+
+    INITRD ubuntu/casper/initrd
+
+    APPEND ip=dhcp url=http://{{ pxe_server_ip }}/ubuntu.iso autoinstall ds=nocloud-net;s=http://{{ pxe_server_ip }}/nocloud/ ---
